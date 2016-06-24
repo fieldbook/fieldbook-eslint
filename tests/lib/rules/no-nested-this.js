@@ -110,13 +110,29 @@ ruleTester.run('no-nested-this', rule, {
       `,
       errors: [{
         message: '"this" not allowed in nested function. Use "me" to suppress this error.',
-      }]
+      }],
+      output: `
+        var foo = function (x) {
+          this.bar(function () {
+            me.blah = true;
+          });
+        }
+      `,
     }, {
       code: `
         function foo(x) {
           return x.bar(function () {
             return function () {
               return this;
+            };
+          }.bind(this));
+        }
+      `,
+      output: `
+        function foo(x) {
+          return x.bar(function () {
+            return function () {
+              return me;
             };
           }.bind(this));
         }
