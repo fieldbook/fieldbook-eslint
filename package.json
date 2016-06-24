@@ -1,0 +1,29 @@
+{
+  "name": "eslint-plugin-fieldbook",
+  "version": "0.0.0",
+  "description": "Custom rules for Fieldbook",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "dependencies": {
+    "requireindex": "~1.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.0",
+    "eslint": "~2.6.0",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-plugin-promise": "^1.3.2",
+    "eslint-plugin-standard": "^1.3.2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "ISC"
+}
