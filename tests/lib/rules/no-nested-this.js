@@ -87,6 +87,15 @@ ruleTester.run('no-nested-this', rule, {
         })
       }
     `, // allowed constructor
+    `
+    var foo = function () {
+      var bar = this.allowedThisFunc({
+        baz: function * () {
+          this.doSomething(); // should not error because of allowedThisFunc
+        }.async()
+      })
+    }
+    `, // allowed grandparent with async pattern
   ].map(function (code) {
     return {code, options, parserOptions};
   }),
