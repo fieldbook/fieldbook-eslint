@@ -10,7 +10,7 @@ const makeError = function (code) {
     }]};
 }
 
-var ruleTester = new RuleTester();
+var ruleTester = new RuleTester({parserOptions: {ecmaVersion: '2017'}});
 ruleTester.run("no-template-substitions-in-strings", rule, {
 
   valid: [
@@ -18,6 +18,8 @@ ruleTester.run("no-template-substitions-in-strings", rule, {
     "'foo'",
     "2",
     "bar('foo')",
+    "var str = `${foo}`",
+    "bar(`${foo}`)",
     `var hash = {foo: 2};`,
     `var hash = {"foo": 2};`,
     `var hash = {'foo': 2};`,
