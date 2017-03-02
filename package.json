@@ -2,6 +2,7 @@
   "name": "eslint-plugin-fieldbook",
   "version": "0.0.4",
   "description": "Custom rules for Fieldbook",
+  "repository": "fieldbook/fieldbook-eslint",
   "keywords": [
     "eslint",
     "eslintplugin",
