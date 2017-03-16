@@ -2,7 +2,13 @@ var rule = require('../../../lib/rules/no-selenium-promise-in-async'),
 
 RuleTester = require('eslint').RuleTester;
 
-var options = ['anotherSelenium'];
+var options = [
+  '^.*Page$',
+  '^page.*',
+  '^site$',
+  '^anotherSelenium$'
+];
+
 var parserOptions = {ecmaVersion: 6};
 
 var ruleTester = new RuleTester({parserOptions});
