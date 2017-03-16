@@ -3,7 +3,12 @@ const RuleTester = require("eslint").RuleTester;
 
 const ruleTester = new RuleTester({parserOptions: {ecmaVersion: '2017'}});
 
-const options = ['qsave', 'then', 'fail'];
+const options = [
+  '^qsave$',
+  '^then$',
+  '^fail$',
+  '^q[A-Z]',
+];
 
 const makeError = function ([code, methodName]) {
   return {
@@ -28,6 +33,7 @@ ruleTester.run('no-unused-promise', rule, {
     `var f = function (model) {
       return model.qsave();
     }`,
+    `let f = x.qFindBook()`,
   ].map(function (code) {
     return {code, options};
   }),
@@ -42,5 +48,6 @@ ruleTester.run('no-unused-promise', rule, {
     }`, 'then'],
 
     ['var f = function * (model) { model.qsave() }', 'qsave'],
+    [`x.qFindBook()`, 'qFindBook'],
   ].map(makeError),
 })

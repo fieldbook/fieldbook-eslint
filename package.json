@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-fieldbook",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Custom rules for Fieldbook",
   "repository": "fieldbook/fieldbook-eslint",
   "keywords": [
@@ -14,7 +14,8 @@
     "test": "mocha tests --recursive"
   },
   "dependencies": {
-    "requireindex": "~1.1.0"
+    "requireindex": "~1.1.0",
+    "underscore": "1.8.3"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.0",
